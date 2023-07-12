@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/aplicativo_m_dia_escolar"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="13dp" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="#E9E9E9"
+                android:backgroundTint="#E9E9E9"
+                android:ems="10"
+                android:hint="@string/txt_hint_edit_nome_do_aluno"
+                android:inputType="textPersonName"
+                android:textColorHint="#000000"
+                android:autofillHints="" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nota_das_disciplinas"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/matematica"
+                android:textColor="#000000"
+                android:layout_marginStart="30dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/editTextMatematicaBimestre1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="#E9E9E9"
+                    android:backgroundTint="#E9E9E9"
+                    android:elevation="8dp"
+                    android:gravity="center"
+                    android:ems="10"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:id="@+id/editTextMatematicaBimestre2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="#C53030"
+                    android:backgroundTint="#E9E9E9"
+                    android:elevation="4dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:id="@+id/editTextMatematicaBimestre3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="#FFEB3B"
+                    android:backgroundTint="#E9E9E9"
+                    android:elevation="8dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
+                    android:inputType="numberDecimal"/>
+
+                <EditText
+                    android:id="@+id/editTextMatematicaBimestre4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="#E9E9E9"
+                    android:ems="10"
+                    android:gravity="center"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    android:id="@+id/resultadoMediaMatematica"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:elevation="4dp"
+                    android:textColor="@color/preto"/>
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/btn_calcular_matematica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#7EBCF5"
+                        android:hint="@string/txt_hint_edit_calcular"
+                        android:textColorHint="#000000" />
+
+                    <ImageButton
+                        android:id="@+id/btn_excluir_matematica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                    <Button
+                        android:id="@+id/btn_salvar_matematica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#7EBCF5"
+                        android:hint="@string/txt_hint_edit_salvar"
+                        android:textColorHint="#000000" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/português"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="11dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/editTextPortuguesBimestre1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextPortuguesBimestre2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextPortuguesBimestre3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextPortuguesBimestre4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/resultadoMediaPortugues"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:elevation="4dp"
+                        android:text="@string/media"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btn_calcular_portugues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_calcular"
+                            android:textColorHint="#000000" />
+
+                        <ImageButton
+                            android:id="@+id/btn_excluir_portugues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#FFFFFF"
+                            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                        <Button
+                            android:id="@+id/btn_salvar_portugues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_salvar"
+                            android:textColorHint="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textViewGeografia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/geografia"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="11dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/editTextGeografiaBimestre1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextGeografiaBimestre2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextGeografiaBimestre3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextGeografiaBimestre4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/resultadoMediaGeografia"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:elevation="4dp"
+                        android:text="@string/media"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btn_calcular_geografia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_calcular"
+                            android:textColorHint="#000000" />
+
+                        <ImageButton
+                            android:id="@+id/btn_excluir_geografia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#FFFFFF"
+                            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                        <Button
+                            android:id="@+id/btn_salvar_geografia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_salvar"
+                            android:textColorHint="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textViewHistóriaTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/história"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="11dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/editTextHistoriaBimestre1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextHistoriaBimestre2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextHistoriaBimestre3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextHistoriaBimestre4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/resultadoMediaHistoria"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:elevation="4dp"
+                        android:text="@string/media"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btn_calcular_historia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_calcular"
+                            android:textColorHint="#000000" />
+
+                        <ImageButton
+                            android:id="@+id/btn_excluir_historia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#FFFFFF"
+                            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                        <Button
+                            android:id="@+id/btn_salvar_historia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_salvar"
+                            android:textColorHint="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textViewFisicaTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/física"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="11dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/editTextFisicaBimestre1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextFisicaBimestre2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextFisicaBimestre3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <EditText
+                        android:id="@+id/editTextFisicaBimestre4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:autofillHints=""
+                        android:background="#E9E9E9"
+                        android:backgroundTint="#E9E9E9"
+                        android:elevation="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/resultadoMediaFisica"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:elevation="4dp"
+                        android:text="@string/media"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btn_calcular_fisica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_calcular"
+                            android:textColorHint="#000000" />
+
+                        <ImageButton
+                            android:id="@+id/btn_excluir_fisica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#FFFFFF"
+                            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                        <Button
+                            android:id="@+id/btn_salvar_fisica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="#7EBCF5"
+                            android:hint="@string/txt_hint_edit_salvar"
+                            android:textColorHint="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/textViewMatematica"
+                            android:layout_width="62dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:text="Matemática"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textViewResultadoMatematica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="RESULTADO"
+                            android:textColor="@color/verde"/>
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/textViewPortugues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:text="Portugês"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textViewResultadoPortugues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="RESULTADO"
+                            android:textColor="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/ViewGeografia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:text="Geografia"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textViewResultadoGeografia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="RESULTADO"
+                            android:textColor="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/textViewHistoria"
+                            android:layout_width="61dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:text="História"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textViewResultadoHistoria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="RESULTADO"
+                            android:textColor="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/textViewFisica"
+                            android:layout_width="61dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:text="Física"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textViewResultadoFisica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="RESULTADO"
+                            android:textColor="#000000" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

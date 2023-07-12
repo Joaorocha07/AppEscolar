@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AppEscolar</string>
+    <string name="aplicativo_m_dia_escolar">Aplicativo Escolar</string>
+    <string name="txt_hint_edit_nome_do_aluno">Nome do Aluno</string>
+    <string name="nota_das_disciplinas">Nota das Disciplinas</string>
+    <string name="matematica">Matemática</string>
+    <string name="media">Media</string>
+    <string name="txt_hint_edit_calcular">Calcular</string>
+    <string name="txt_hint_edit_salvar">Salvar</string>
+    <string name="português">Português</string>
+    <string name="geografia">Geografia</string>
+    <string name="história">História</string>
+    <string name="física">Física</string>
+    <color name="verde">#00FF00</color>
+    <color name="vermelho">#FF0000</color>
+    <color name="preto">#000000</color>
+</resources>
