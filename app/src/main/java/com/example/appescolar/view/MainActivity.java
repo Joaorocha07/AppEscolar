@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import com.example.appescolar.R;
 import com.example.appescolar.controller.MatematicaController;
+import com.example.appescolar.database.EscolaDB;
 import com.example.appescolar.modal.Matematica;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_Calcular_Media_Matematica;
     ImageButton btn_Limpar_Notas_Matematica;
     Button btn_Salvar_Notas_Matematica;
+
+    boolean mediaCalculada = false;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -71,30 +76,21 @@ public class MainActivity extends AppCompatActivity {
         btn_Salvar_Notas_Matematica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!mediaCalculada) {
+                    Toast.makeText(MainActivity.this, "Calcule a média antes de salvar as notas", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String primeiraNota = edit_primeiraNotaMatematica.getText().toString();
                 String segundaNota = edit_SegundaNotaMatematica.getText().toString();
                 String terceiraNota = edit_TerceiraNotaMatematica.getText().toString();
                 String quartaNota = edit_QuartaNotaMatematica.getText().toString();
 
-                matematica = new Matematica();
-                matematica.setNotaPrimeiroBimestre(primeiraNota);
-                matematica.setNotaSegundoBimestre(segundaNota);
-                matematica.setNotaTerceiroBimestre(terceiraNota);
-                matematica.setNotaQuartoBimestre(quartaNota);
-
-                matematicaController.salvar(matematica);
-
-                Toast.makeText(MainActivity.this, "Notas de Matemática Salvas: " + matematica.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btn_Calcular_Media_Matematica.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String primeiraNota = edit_primeiraNotaMatematica.getText().toString();
-                String segundaNota = edit_SegundaNotaMatematica.getText().toString();
-                String terceiraNota = edit_TerceiraNotaMatematica.getText().toString();
-                String quartaNota = edit_QuartaNotaMatematica.getText().toString();
+                // Verificar se todos os campos estão preenchidos
+                if (primeiraNota.isEmpty() || segundaNota.isEmpty() || terceiraNota.isEmpty() || quartaNota.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 double primeira = Double.parseDouble(primeiraNota);
                 double segunda = Double.parseDouble(segundaNota);
@@ -103,23 +99,90 @@ public class MainActivity extends AppCompatActivity {
 
                 double media = (primeira + segunda + terceira + quarta) / 4;
 
-                // Exibir o resultado de aprovação/reprovação em um TextView
-                TextView textViewResultadoMatematica = findViewById(R.id.textViewResultadoMatematica);
-                if (media >= 60) {
-                    textViewResultadoMatematica.setText("APROVADO");
-                    textViewResultadoMatematica.setTextColor(getResources().getColor(R.color.verde));
-                } else {
-                    textViewResultadoMatematica.setText("REPROVADO");
-                    textViewResultadoMatematica.setTextColor(getResources().getColor(R.color.vermelho));
-                }
+                // Verificar se a média é um valor válido
+                if (Double.isFinite(media)) {
+                    // Formatar a média com duas casas decimais
+                    DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                    String mediaFormatada = decimalFormat.format(media);
 
-                // Exibir a média em um TextView com a cor apropriada
-                TextView resultadoMediaMatematica = findViewById(R.id.resultadoMediaMatematica);
-                resultadoMediaMatematica.setText(String.valueOf(media));
-                if (media < 60) {
-                    resultadoMediaMatematica.setTextColor(getResources().getColor(R.color.vermelho));
+                    // Exibir o resultado de aprovação/reprovação em um TextView
+                    TextView textViewResultadoMatematica = findViewById(R.id.textViewResultadoMatematica);
+                    if (media >= 60) {
+                        textViewResultadoMatematica.setText("APROVADO");
+                        textViewResultadoMatematica.setTextColor(getResources().getColor(R.color.verde));
+                    } else {
+                        textViewResultadoMatematica.setText("REPROVADO");
+                        textViewResultadoMatematica.setTextColor(getResources().getColor(R.color.vermelho));
+                    }
+
+                    // Exibir a média em um TextView com a cor apropriada
+                    TextView resultadoMediaMatematica = findViewById(R.id.resultadoMediaMatematica);
+                    resultadoMediaMatematica.setText(mediaFormatada);
+                    if (media < 60) {
+                        resultadoMediaMatematica.setTextColor(getResources().getColor(R.color.vermelho));
+                    } else {
+                        resultadoMediaMatematica.setTextColor(getResources().getColor(R.color.verde));
+                    }
+
+                    // Salvar os dados no banco de dados
+                    matematica.setResultadoMedia(mediaFormatada);
+                    matematicaController.salvar(matematica);
+
+                    Toast.makeText(MainActivity.this, "Notas de Matemática Salvas: " + matematica.toString(), Toast.LENGTH_SHORT).show();
                 } else {
-                    resultadoMediaMatematica.setTextColor(getResources().getColor(R.color.verde));
+                    Toast.makeText(MainActivity.this, "Por favor, insira um valor válido", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btn_Calcular_Media_Matematica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String primeiraNotaMatematica = edit_primeiraNotaMatematica.getText().toString();
+                String segundaNotaMatematica = edit_SegundaNotaMatematica.getText().toString();
+                String terceiraNotaMatematica = edit_TerceiraNotaMatematica.getText().toString();
+                String quartaNotaMatematica = edit_QuartaNotaMatematica.getText().toString();
+
+                if (primeiraNotaMatematica.isEmpty() || segundaNotaMatematica.isEmpty() || terceiraNotaMatematica.isEmpty() || quartaNotaMatematica.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show();
+                } else {
+                    double primeira = Double.parseDouble(primeiraNotaMatematica);
+                    double segunda = Double.parseDouble(segundaNotaMatematica);
+                    double terceira = Double.parseDouble(terceiraNotaMatematica);
+                    double quarta = Double.parseDouble(quartaNotaMatematica);
+
+                    double media = (primeira + segunda + terceira + quarta) / 4;
+
+                    // Verificar se a média é um valor válido
+                    if (Double.isFinite(media)) {
+                        // Formatar a média com duas casas decimais
+                        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                        String mediaFormatada = decimalFormat.format(media);
+
+                        // Exibir o resultado de aprovação/reprovação em um TextView
+                        TextView textViewResultadoMatematica = findViewById(R.id.textViewResultadoMatematica);
+                        if (media >= 60) {
+                            textViewResultadoMatematica.setText("APROVADO");
+                            textViewResultadoMatematica.setTextColor(getResources().getColor(R.color.verde));
+                        } else {
+                            textViewResultadoMatematica.setText("REPROVADO");
+                            textViewResultadoMatematica.setTextColor(getResources().getColor(R.color.vermelho));
+                        }
+
+                        // Exibir a média em um TextView com a cor apropriada
+                        TextView resultadoMediaMatematica = findViewById(R.id.resultadoMediaMatematica);
+                        resultadoMediaMatematica.setText(mediaFormatada);
+                        if (media < 60) {
+                            resultadoMediaMatematica.setTextColor(getResources().getColor(R.color.vermelho));
+                        } else {
+                            resultadoMediaMatematica.setTextColor(getResources().getColor(R.color.verde));
+                        }
+
+                        // Definir o estado de cálculo da média como verdadeiro
+                        mediaCalculada = true;
+                    } else {
+                        Toast.makeText(MainActivity.this, "Por favor, insira um valor válido", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

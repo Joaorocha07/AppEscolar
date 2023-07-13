@@ -2,6 +2,7 @@ package com.example.appescolar.controller;
 
 import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -15,9 +16,11 @@ public class MatematicaController extends EscolaDB {
     SharedPreferences.Editor listaVip;
 
     public static final String NOME_PREFERENCES = "pref_listavip";
+    private EscolaDB escolaDB;
 
     public MatematicaController(MainActivity activity) {
         super(activity);
+        escolaDB = this;
         preferences = activity.getSharedPreferences(NOME_PREFERENCES,0);
         listaVip = preferences.edit();
     }
@@ -29,7 +32,7 @@ public class MatematicaController extends EscolaDB {
         return super.toString();
     }
 
-    public Matematica salvar(Matematica notaMatematica) {
+    public void salvar(Matematica notaMatematica) {
         ContentValues dados = new ContentValues();
 
         Log.d("MVP_MVC_controller", "Salvo: " + notaMatematica.toString());
@@ -40,16 +43,18 @@ public class MatematicaController extends EscolaDB {
         listaVip.putString("Resultado Media: ", notaMatematica.getResultadoMedia());
         listaVip.apply();
 
-        dados.put("Nota primeiro bimestre:", notaMatematica.getNotaPrimeiroBimestre());
-        dados.put("Nota segundo bimestre:", notaMatematica.getNotaSegundoBimestre());
-        dados.put("Nota terceiro bimestre:", notaMatematica.getNotaTerceiroBimestre());
-        dados.put("Nota quarto bimestre:", notaMatematica.getNotaQuartoBimestre());
-        dados.put("Resultado da media:", notaMatematica.getResultadoMedia());
+        dados.put("notaMatematicaPrimeiroBimestre", notaMatematica.getNotaPrimeiroBimestre());
+        dados.put("notaMatematicaSegundoBimestre", notaMatematica.getNotaSegundoBimestre());
+        dados.put("notaMatematicaTerceiroBimestre", notaMatematica.getNotaTerceiroBimestre());
+        dados.put("notaMatematicaQuartoBimestre", notaMatematica.getNotaQuartoBimestre());
+        dados.put("resultado", notaMatematica.getResultadoMedia());
 
-        salvarObjeto("notaMatematica", dados);
-
-        return notaMatematica;
+        // SQLiteDatabase db = getWritableDatabase(); // Use getWritableDatabase() do EscolaDB
+        SQLiteDatabase db = escolaDB.getDatabase();
+        db.insert("Escola", null, dados);
+        db.close();
     }
+
 
     public void limpar (){
         listaVip.clear();
